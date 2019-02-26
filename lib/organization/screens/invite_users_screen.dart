@@ -81,8 +81,6 @@ class _InviteUsersScreenState
                               child: TextField(
                                 keyboardType: TextInputType.emailAddress,
                                 controller: _emailController,
-                                onChanged: (_) {},
-                                onEditingComplete: () {},
                                 decoration: InputDecoration(
                                   contentPadding: EdgeInsets.all(12.0),
                                   border: InputBorder.none,
