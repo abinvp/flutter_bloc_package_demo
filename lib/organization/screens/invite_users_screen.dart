@@ -183,14 +183,6 @@ class _InviteUsersScreenState
     for (String email in emails) {
       yield InputChip(
         label: Text('$email'),
-        onPressed: () {
-          _emailController.text = email;
-          _inviteUsersBloc.dispatch(
-            EmailDeleted(
-              email: email,
-            ),
-          );
-        },
         deleteIconColor: Colors.green,
         deleteIcon: Icon(
           Icons.cancel,
