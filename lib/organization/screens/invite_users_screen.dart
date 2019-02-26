@@ -109,16 +109,7 @@ class _InviteUsersScreenState
                             child: Icon(Icons.add),
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(left: 20.0),
-                          width: 1.0,
-                          height: 30.0,
-                          color: Colors.blueGrey,
-                        ),
-                        FlatButton(
-                          child: Text('INVITE'),
-                          onPressed: () {},
-                        ),
+                        
                       ],
                     ),
                   ),
