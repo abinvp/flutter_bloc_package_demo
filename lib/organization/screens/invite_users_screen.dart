@@ -12,20 +12,20 @@ class InviteUsersScreen extends StatefulWidget {
 
 class _InviteUsersScreenState
     extends State<InviteUsersScreen> {
-  InviteUsersBloc _inviteOrganizationUsersBloc;
+  InviteUsersBloc _inviteUsersBloc;
   final _emailController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _inviteOrganizationUsersBloc = InviteUsersBloc();
+    _inviteUsersBloc = InviteUsersBloc();
 
-    _inviteOrganizationUsersBloc.dispatch(ScreenInitialized());
+    _inviteUsersBloc.dispatch(ScreenInitialized());
   }
 
   @override
   void dispose() {
-    _inviteOrganizationUsersBloc.dispose();
+    _inviteUsersBloc.dispose();
     _emailController.dispose();
     super.dispose();
   }
@@ -34,12 +34,11 @@ class _InviteUsersScreenState
   Widget build(BuildContext context) {
     return BlocBuilder<InviteUsersEvent,
         InviteUsersState>(
-      bloc: _inviteOrganizationUsersBloc,
+      bloc: _inviteUsersBloc,
       builder: (
         BuildContext context,
         InviteUsersState state,
       ) {
-
         return Scaffold(
           appBar: AppBar(
             title: Text('Invite Users'),
@@ -101,7 +100,7 @@ class _InviteUsersScreenState
                           size: Size.fromRadius(20.0),
                           child: CircularGradientButton(
                             callback: () =>
-                                _inviteOrganizationUsersBloc.dispatch(
+                                _inviteUsersBloc.dispatch(
                                   EmailSubmitted(
                                     email: _emailController.text,
                                   ),
@@ -186,7 +185,7 @@ class _InviteUsersScreenState
         label: Text('$email'),
         onPressed: () {
           _emailController.text = email;
-          _inviteOrganizationUsersBloc.dispatch(
+          _inviteUsersBloc.dispatch(
             EmailDeleted(
               email: email,
             ),
@@ -198,7 +197,7 @@ class _InviteUsersScreenState
           color: Colors.blueGrey,
         ),
         onDeleted: () {
-          _inviteOrganizationUsersBloc.dispatch(
+          _inviteUsersBloc.dispatch(
             EmailDeleted(
               email: email,
             ),
